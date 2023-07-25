@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{- partial "head.html" . -}}
+    <body class="bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-950 h-screen flex flex-col">
+        {{- partial "navbar.html" . -}}
+        <div class="grow">
+            {{- block "main" . }}{{- end }}
+        </div>
+        {{- partial "footer.html" . -}}
+        {{- partial "script.html" . -}}
+    </body>
+</html>

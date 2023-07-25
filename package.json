@@ -1,0 +1,29 @@
+{
+  "author": "Aishik Pyne",
+  "comments": {
+    "dependencies": {},
+    "devDependencies": {
+      "flowbite": "project",
+      "tailwindcss": "project"
+    }
+  },
+  "description": "",
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "flowbite": "^1.6.6",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "tailwind-fontawesome": "^0.5.0",
+    "tailwindcss": "^3.3.2"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "main": "tailwind.config.js",
+  "name": "haikis",
+  "scripts": {
+    "build": "npx tailwindcss -i ./tailwind.css -o ./static/css/style.css",
+    "watch": "npx tailwindcss -i ./tailwind.css -o ./static/css/style.css --watch"
+  },
+  "version": "1.0.0"
+}

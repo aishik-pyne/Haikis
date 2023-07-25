@@ -1,0 +1,78 @@
+{{- define "main" }} {{- $pages := union .RegularPages .Sections }} {{-
+$paginator := .Paginate $pages }}
+
+<div class="container m-6 mx-auto max-w-screen-desktop px-4 tablet:px-8">
+  <div class="grid grid-cols-1 gap-4 tablet:grid-cols-3">
+    {{- range $index, $page := $paginator.Pages }}
+    {{ partial "common/post_card.html" $page }}
+    
+    {{ end }}
+  </div>
+
+  {{- if gt $paginator.TotalPages 0 }}
+  <p>PageNumber {{$paginator.PageNumber}}</p>
+  <p> URL {{$paginator.URL}}</p>
+  <p>{{$paginator.Pages}}</p>
+  <p>{{$paginator.NumberOfElements}}</p>
+  <p>{{$paginator.PageNumber}}</p>
+  <p>{{$paginator.PageNumber}}</p>
+  <p>{{$paginator.PageNumber}}</p>
+  <p>{{$paginator.PageNumber}}</p>
+<footer class="page-footer">
+  <nav class="pagination">
+    {{- if $paginator.HasPrev }}
+    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
+      «&nbsp;{{ i18n "prev_page" }}&nbsp;
+      {{- if (.Param "ShowPageNums") }}
+      {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
+      {{- end }}
+    </a>
+    {{- end }}
+    {{- if $paginator.HasNext }}
+    <a class="next" href="{{ $paginator.Next.URL | absURL }}">
+      {{- i18n "next_page" }}&nbsp;
+      {{- if (.Param "ShowPageNums") }}
+      {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
+      {{- end }}&nbsp;»
+    </a>
+    {{- end }}
+  </nav>
+</footer>
+{{- end }}
+
+
+<div class="container m-6 mx-auto max-w-screen-desktop px-4 tablet:px-8">
+<nav aria-label="Page navigation example" class="text-center">
+    <ul class="inline-flex -space-x-px">
+        {{- if $paginator.HasPrev }}
+      <li>
+        
+        <a href="#" class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+      </li>
+      {{- end }}
+      <li>
+        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+      </li>
+      <li>
+        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+      </li>
+      <li>
+        <a href="#" aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+      </li>
+      <li>
+        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+      </li>
+      <li>
+        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+      </li>
+      {{- if $paginator.HasNext }}
+      <li>
+        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+      </li>
+      {{- end}}
+    </ul>
+</nav>
+</div>
+
+</div>
+{{ end }}

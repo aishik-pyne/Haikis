@@ -1,0 +1,16 @@
+<figure>
+    
+    <a href="{{ .Destination | safeURL }}"
+        {{ with .Title }} title="{{ . }}"{{ end }}
+        {{ if strings.HasPrefix .Destination "http" }} 
+        target="_blank" rel="noopener"{{ end }}>
+        
+        <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+    </a>
+    <figcaption>
+        {{ with .Text }} 
+        <strong >{{ . | safeHTML }}: </strong>
+        {{ end }}
+        
+        {{ .Title | safeHTML }}</figcaption>
+</figure>
