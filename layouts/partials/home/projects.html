@@ -1,0 +1,21 @@
+<div class="container mx-auto px-4 tablet:px-8  m-6 max-w-screen-desktop">
+  <div class="flex flex-row justify-center">
+    <h1
+      class="mb-4 inline-block p-4 text-center align-bottom text-3xl font-extrabold text-gray-900 dark:text-white tablet:text-4xl desktop:text-4xl"
+    >
+      Some of my best
+      <span
+        class="bg-gradient-to-r from-sky-400 to-emerald-600 bg-clip-text pl-2 text-4xl text-transparent tablet:text-5xl desktop:text-5xl"
+        >Projects</span
+      >
+    </h1>
+  </div>
+  <div class="mx-auto grid gap-4 grid-cols-1 justify-items-center tablet:grid-cols-3  tablet:p-0 ">
+    
+    {{ $projects := .Site.Taxonomies.categories.projects}}
+    {{ range $page := first 3 $projects }}
+    {{ partial "common/post_card.html" $page }}
+    {{end}}
+    
+  </div>
+</div>
