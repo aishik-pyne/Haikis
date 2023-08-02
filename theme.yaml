@@ -1,0 +1,25 @@
+name: Haikis
+license: MIT
+licenselink: 'https://github.com/yourname/yourtheme/blob/master/LICENSE'
+description: 'A fast, lightweight, responsive hugo theme made using Tailwind and Flowbite'
+homepage: 'http://example.com/'
+tags:
+  - responsive
+  - simple
+  - clean
+  - light
+  - dark
+  - blog
+  - minimalist
+  - search
+features: []
+min_version: 0.1.0
+version: 0.1.0
+author:
+  name: Aishik Pyne
+  homepage: 'https://aishikpyne.com'
+original:
+  name: ''
+  homepage: ''
+  repo: ''
+
