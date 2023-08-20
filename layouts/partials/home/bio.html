@@ -1,95 +1,93 @@
-<div class="container mx-auto px-4 tablet:px-8 m-6 max-w-screen-desktop min-h-[50vh]">
+<section
+  class="container m-6 mt-16 mx-auto max-w-screen-desktop px-4 tablet:px-8"
+>
   <div class="grid grid-cols-1 justify-center tablet:grid-cols-2">
-    <div class=" flex w-64 tablet:w-auto pr-8 flex-col justify-center mb-4 tablet:mb-0">
+    {{/*  Image  */}}
+    <div
+      class="mb-4 flex w-64 mx-auto flex-col justify-center tablet:pr-8 tablet:mb-0 tablet:w-80"
+    >
       {{ $image := resources.Get "images/AishikPyneDP.jpeg" }}
-      <img class="rounded-xl" src="{{ $image.RelPermalink }}" alt="" />
-     
+      <img class="rounded-full " src="{{ $image.RelPermalink }}" alt="" />
     </div>
+
+
     <div class="">
       <!-- Name and Email -->
-      <h1
-        class="p-0 text-center text-4xl font-extrabold  tablet:text-5xl bg-gradient-to-r from-sky-400 to-emerald-600 bg-clip-text text-transparent"
-      >Aishik Pyne
-        
-    </h1>
-    <a href="mailto: {{ .Site.Params.contactInformation.email }}" class="mb-2 -mt-2 tablet:mb-3 text-center text-sm font-bold text-gray-500 dark:text-white hover:underline">
-        <i class="fa fa-envelope"></i>
-      {{.Site.Params.contactInformation.email}}
-    </a>
-      <p
-        class="pb-2 text-lg font-normal text-gray-500 dark:text-gray-400 lg:text-xl"
+      <div
+        class="prose font-normal font-sans
+              prose-lead:leading-snug
+              text-base 
+            text-zinc-600 dark:text-zinc-400
+            prose-a:text-zinc-700 dark:prose-a:text-zinc-300
+            prose-a:no-underline 
+            prose-a:hover:text-zinc-500
+             "
       >
-        I’m a Master’s in AI student at, National University of Singapore,
-        advised by
-        <a
-          href="#"
-          class="font-medium text-pink-600 hover:underline dark:text-pink-500"
-          >Prof. David Hsu.</a
-        >
+        <p>
+          I’m Aishik, a Master’s in AI student at, National University of Singapore,
+          advised by
+          <a
+            href="https://www.comp.nus.edu.sg/~dyhsu/"
+            
+            >Prof. David Hsu.</a
+          >
 
-        My research interests are Robot Learning using LLMs.
-      </p>
-      <p
-        class="text-lg font-normal text-gray-500 dark:text-gray-400 lg:text-xl"
-      >
-        Previously I was a software Engineer at Microsoft IDC, India where I
-        worked on Azure Blockchain, Agriculture and Financial Cloud Teams, where
-        I had the privilege to work with
-        <a
-          href="https://www.linkedin.com/in/anil-bhansali-6761703/?originalSubdomain=in"
-          class="font-medium text-pink-600 hover:underline dark:text-pink-500"
-          >Anil Bhansal</a
-        >,
-        <a
-          href="https://www.linkedin.com/in/rajesh-jalan-45b7a0/?originalSubdomain=in"
-          class="font-medium text-pink-600 hover:underline dark:text-pink-500"
-          >Rajesh Jalan</a
-        >,
-        <a
-          href="https://www.linkedin.com/in/anuragkj/?originalSubdomain=in"
-          class="font-medium text-pink-600 hover:underline dark:text-pink-500"
-          >Anurag Kumar</a
-        >
-        <a
-          href="https://www.linkedin.com/in/loganathan-ramalingam-4a6673128/?originalSubdomain=in"
-          class="font-medium text-pink-600 hover:underline dark:text-pink-500"
-          >Loganathan Ramalingam</a
-        >
-      </p>
+          My research interests are Robot Learning using LLMs.
+        </p>
+        <p>
+          Previously I was a software Engineer at Microsoft IDC, India where I
+          worked on Azure Blockchain, Agriculture and Financial Cloud Teams,
+          where I had the privilege to work with
+          <a
+            href="https://www.linkedin.com/in/anil-bhansali-6761703/?originalSubdomain=in"
+            class="font-medium "
+            >Anil Bhansal</a
+          >,
+          <a
+            href="https://www.linkedin.com/in/rajesh-jalan-45b7a0/?originalSubdomain=in"
+            class="font-medium text-zinc-600 hover:underline dark:text-zinc-400"
+            >Rajesh Jalan</a
+          >,
+          <a
+            href="https://www.linkedin.com/in/anuragkj/?originalSubdomain=in"
+            class="font-medium text-zinc-600 hover:underline dark:text-zinc-400"
+            >Anurag Kumar</a
+          >
+          <a
+            href="https://www.linkedin.com/in/loganathan-ramalingam-4a6673128/?originalSubdomain=in"
+            class="font-medium text-zinc-600 hover:underline dark:text-zinc-400"
+            >Loganathan Ramalingam</a
+          >
+        </p>
+      </div>
 
-      <form>
-        <div class="my-6">
-          <div class="flex flex-row">
-            <input
-              type="email"
-              id="email"
-              class="mr-3 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-pink-500 focus:ring-pink-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-pink-500 dark:focus:ring-pink-500"
-              placeholder="Email Address"
-              required
-            />
-            <button
-              type="submit"
-              class="w-auto rounded-lg bg-pink-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-pink-800 focus:outline-none focus:ring-4 focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
-            >
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </form>
 
-       <!-- Icons -->
-       <div class="mb-2 flex flex-row justify-center gap-0">
-        {{ range $elem_index, $elem_val := .Site.Params.socialMedia }}
-        <a href="{{ $elem_val }}" data-tooltip-target="tooltip-github-2" class="hidden sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1">
+      <!-- Icons -->
+      <div class="mb-2 flex flex-row justify-center gap-0">
+        {{/* Email */}}
+        <a
+          href="mailto: {{ .Site.Params.contactInformation.email }}"
+          class="hidden rounded-lg p-2.5 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 sm:inline-block"
+        >
           <i
-            class="fa-brands fa-{{ $elem_index }} rounded-lg py-1 px-2 text-xl text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700 tablet:text-2xl"
+            class="fa-solid fa-envelope rounded-lg px-1 py-1 text-xl text-zinc-500 hover:bg-zinc-50 focus:outline-none focus:ring-4 focus:ring-zinc-500 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 tablet:text-2xl"
+          >
+          </i>
+        </a>
+        {{/* Social Media Links */}} 
+        {{ range $elem_index, $elem_val := .Site.Params.socialMedia }}
+        <a
+          href="{{ $elem_val }}"
+          class="hidden rounded-lg p-2.5 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 sm:inline-block"
+        >
+          <i
+            class="fa-brands fa-{{ $elem_index }} rounded-lg py-1 px-1 text-xl text-zinc-500 hover:bg-zinc-50 focus:outline-none focus:ring-4 focus:ring-zinc-500 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 tablet:text-2xl"
           >
           </i>
         </a>
 
         {{ end }}
-       
       </div>
     </div>
   </div>
-</div>
+</section>
