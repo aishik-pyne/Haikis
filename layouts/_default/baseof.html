@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     {{- partial "head.html" . -}}
-    <body class="bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-950 h-screen flex flex-col">
+    <body class="bg-zinc-50 dark:bg-black h-screen flex flex-col">
+        {{/*  Fixed inner boundary  */}}
+        <div class="fixed inset-0 flex justify-center tablet:px-8">
+            <div class="flex w-full max-w-7xl desktop:px-8">
+                <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
+            </div>
+        </div>
+
+        {{/*  Actual content  */}}
         {{- partial "navbar.html" . -}}
-        <div class="grow">
+        <div class="relative flex flex-col w-full mx-auto pt-16">
             {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}
