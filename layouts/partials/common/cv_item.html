@@ -24,7 +24,7 @@
           <div class="grow">
 
             <div>
-              <span class="text-lg font-bold text-gray-900 dark:text-white">{{ .context.Params.Title }}</span>
+              <span class="text-lg font-semibold text-gray-900 dark:text-white">{{ .context.Params.Title }}</span>
             </div>
             <span class="text-base font-normal text-gray-500 dark:text-gray-400 pr-2">{{ trim .context.Params.Organization " "}} · {{ trim .context.Params.Location " "}}</span>
             <div>
@@ -35,8 +35,8 @@
           
           {{/*  <div class="text-base font-normal text-gray-500 dark:text-gray-400 pr-2">{{ .context.Params.Location }}</div>  */}}
           
-          <div class="text-base font-normal text-gray-500 dark:text-gray-400 pr-2">
-            <i class="fa-regular fa-calendar"></i>
+          <div class="text-sm font-normal text-gray-500 dark:text-gray-400 pr-2">
+            {{/*  <i class="fa-regular fa-calendar"></i>  */}}
             <time>{{ time.Format "Jan 2006" .context.Params.From}}</time> &mdash;
             <time>{{ time.Format "Jan 2006" .context.Params.to}}</time> 
           </div>

@@ -1,0 +1,12 @@
+<section id="projects" class="container mx-auto px-4 tablet:px-8  m-6 max-w-screen-desktop mt-8 tablet:mt-12 desktop:mt-16">
+
+  <div class="text-pink-500 text-2xl mb-8 font-bold">Projects</div>
+  <div class="mx-auto grid gap-4 grid-cols-1 justify-items-center tablet:grid-cols-3  tablet:p-0 ">
+    
+    {{ $projects := .Site.Taxonomies.categories.projects}}
+    {{ range $page := first 3 (sort $projects "Date" "desc") }}
+    {{ partial "common/post_card.html" $page }}
+    {{end}}
+    
+  </div>
+</section>

@@ -1,60 +1,13 @@
-<div
-  class="container m-6 mx-auto min-h-[50vh] max-w-screen-desktop px-4 tablet:px-8"
+
+<section
+  id="cv"
+  class="max-w-7xl mx-auto w-full px-4 tablet:px-8 mt-8 tablet:mt-12 desktop:mt-16"
 >
-  {{/*  Title: CV  */}}
-  <div class="flex flex-row justify-center">
-
-    <h1
-    class="mb-4 inline-block p-4 text-center align-bottom text-3xl font-extrabold text-gray-900 dark:text-white tablet:text-4xl desktop:text-4xl"
-    >
-    
-    <span
-    class="bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text pl-2 text-4xl text-transparent tablet:text-5xl desktop:text-5xl"
-    >Curriculum Vitae</span
-    >
-  </h1>
-  </div>
-
-  {{/* Tabs: Chronological, Categorical  */}}
-  <div class="mb-4 border-b border-gray-200 dark:border-gray-700 ">
-    <ul
-      class="-mb-px flex flex-wrap text-center text-sm font-medium justify-center"
-      id="myTab"
-      data-tabs-toggle="#CVTabContent"
-      role="tablist"
-    >
-      <li class="mr-2" role="presentation">
-        <button
-          class="inline-block rounded-t-lg border-b-2 p-4  aria-selected:{border-blue-600}"
-          id="profile-tab"
-          data-tabs-target="#profile"
-          type="button"
-          role="tab"
-          aria-controls="profile"
-          aria-selected="false"
-        >
-          Chronological
-        </button>
-      </li>
-      <li class="mr-2" role="presentation">
-        <button
-          class="inline-block rounded-t-lg border-b-2 aria-selected:{border-blue-600} p-4 hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300"
-          id="cvcategorial-tab"
-          data-tabs-target="#cvcategorial"
-          type="button"
-          role="tab"
-          aria-controls="cvcategorial"
-          aria-selected="false"
-        >
-          Categorical
-        </button>
-      </li>
-    </ul>
-  </div>
-
-  {{/*  Tabs Content  */}}
-  <div id="CVTabContent">
-    {{/*  Chronological  */}}
+  <div class="relative max-w-2xl tablet:max-w-3xl desktop:max-w-5xl mx-auto px-4 tablet:px-4 desktop:px-8">
+    {{/*  Title: CV  */}}
+    <div class="text-pink-500 text-2xl mb-8 font-bold">Curriculum Vitae</div>
+          
+    {{/*  Tabs Content  */}}
     <div
       class="hidden rounded-lg "
       id="profile"
@@ -62,67 +15,34 @@
       aria-labelledby="profile-tab"
     >
       
-     {{/*  Collect all CV item types  */}}
-     {{ $cvItems := where $.Site.RegularPages "Section" "cv"}}
+    {{/*  Collect all CV item types  */}}
+    {{ $cvItems := where $.Site.RegularPages "Section" "cv"}}
 
-     {{ $data := newScratch}}
-     {{range $cvItems }}
-       {{ $data.Add "cvcategories" (slice .Params.Type) }}
-     {{end}}
+    {{ $data := newScratch}}
+    {{range $cvItems }}
+      {{ $data.Add "cvcategories" (slice .Params.Type) }}
+    {{end}}
 
-     {{/*  Display according to Categories  */}}
-     {{ range $catIdx, $catVal := ($data.Get "cvcategories" | uniq) }}
-     <div
-             class="mb-4 rounded-lg border border-gray-100 bg-gray-50 p-5 dark:border-gray-700 dark:bg-gray-800"
-           >
-             
-             <h2 class="text-lg font-semibold text-gray-900 dark:text-white"
-               >{{ strings.FirstUpper .}}</h2
-             >
-             <ol class="divider-gray-200 mt-3 divide-y dark:divide-gray-700">
-              {{ range $pageIdx, $pageVal := (sort (where $cvItems "Params.Type" "in" $catVal) "Params.to" "desc")}}
-              {{ $timelineIdx := printf "%v-%v" $catVal $pageIdx}}
-              {{ partial "common/cv_item.html" (dict "context" $pageVal "timelineIdx" $timelineIdx  ) }}
-              {{ end }}
-             </ol>
-     </div>
-     {{end}}
-    </div>
-
-    {{/*  Categorical  */}}
+    {{/*  Display according to Categories  */}}
+    {{ range $catIdx, $catVal := ($data.Get "cvcategories" | uniq) }}
     <div
-      class="hidden rounded-lg "
-      id="cvcategorial"
-      role="tabpanel"
-      aria-labelledby="cvcategorial-tab"
-    >
-
-      {{/*  Collect all CV item types  */}}
-      {{ $cvItems := where $.Site.RegularPages "Section" "cv"}}
-
-      {{ $data := newScratch}}
-      {{range $cvItems }}
-        {{ $data.Add "cvcategories" (slice .Params.Type) }}
-      {{end}}
-
-      {{/*  Display according to Categories  */}}
-     {{ range $catIdx, $catVal := ($data.Get "cvcategories" | uniq) }}
-     <div
-             class="mb-4 rounded-lg border border-gray-100 bg-gray-50 p-5 dark:border-gray-700 dark:bg-gray-800"
-           >
-             
-             <h2 class="text-lg font-semibold text-gray-900 dark:text-white"
-               >{{ strings.FirstUpper .}}</h2
-             >
-             <ol class="divider-gray-200 mt-3 divide-y dark:divide-gray-700">
+            class="mb-4 rounded-lgp-5"
+          >
+            
+            <h2 class="text-base font-semibold text-zinc-900 dark:text-white"
+              >{{ strings.FirstUpper .}}</h2
+            >
+            <ol class="text-sm mt-3 ">
               {{ range $pageIdx, $pageVal := (sort (where $cvItems "Params.Type" "in" $catVal) "Params.to" "desc")}}
               {{ $timelineIdx := printf "%v-%v" $catVal $pageIdx}}
               {{ partial "common/cv_item.html" (dict "context" $pageVal "timelineIdx" $timelineIdx  ) }}
               {{ end }}
-             </ol>
-     </div>
-     {{end}}
-
+            </ol>
     </div>
+    {{end}}
+    </div>
+
+      
+
   </div>
-</div>
+</section>

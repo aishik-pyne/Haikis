@@ -1,111 +1,107 @@
-<div class="container mx-auto px-4 tablet:px-8  m-6 max-w-screen-desktop">
-  <div class="flex flex-row justify-center">
-    <h1
-      class="inline-block px-4 text-center align-bottom text-3xl font-extrabold text-gray-900 dark:text-white tablet:text-4xl desktop:text-4xl">
-      Lens of
-      <span
-        class="bg-gradient-to-r from-sky-400 to-emerald-600 bg-clip-text pl-2 text-4xl text-transparent tablet:text-5xl desktop:text-5xl">Wanderlust</span>
-    </h1>
-  </div>
-  <h3
-    class="text-md mb-4 block px-4 text-center align-bottom font-extrabold text-gray-900 dark:text-white tablet:text-lg desktop:text-xl">
-    A Visual Symphony of Global Adventures
-  </h3>
+<section id="photography" class="max-w-7xl mx-auto w-full px-4 tablet:px-8 mt-8 tablet:mt-12 desktop:mt-16">
+  <div class="relative max-w-2xl tablet:max-w-3xl desktop:max-w-5xl mx-auto px-4 tablet:px-4 desktop:px-8">
 
-  <!-- Gallery -->
-  <div class="grid gap-3 grid-cols-8 grid-rows-5 grid-flow-col">
-    <!-- Buddha -->
-    <div class="row-span-3 col-span-2">
-      {{ $image := resources.Get "images/gallery/LangzaBuddhaMilkyWay.png" }}
-      {{ with $image }}
+    <div class="text-pink-500 text-2xl mb-8 font-bold">Photography</div>
+
+
+    <!-- Gallery -->
+    <div class="grid gap-3 grid-cols-8 grid-rows-5 grid-flow-col">
+      <!-- Buddha -->
+      <div class="row-span-3 col-span-2">
+        {{ $image := resources.Get "images/gallery/LangzaBuddhaMilkyWay.png" }}
+        {{ $image := $image.Resize "x1600" }}
+        {{ with $image }}
+        <figure class="relative h-full group  transition-all  duration-500 ">
+          <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
+          <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
+            <p class="text-sm">Milky way from Langza</p>
+            <hr class="mb-1">
+            <p class="text-xs"><i class="fa fa-map-marker"></i> Naggad, Himachal Pradesh, India</p>
+          </figcaption>
+        </figure>
+        {{ end }}
+      </div>
+
+      <!-- Moon -->
+      <div class="row-span-2 col-span-2">
+        {{ $image := resources.Get "images/gallery/FullMoon.png" }} {{ with
+        $image }}
+        <figure class="relative h-full group  transition-all  duration-500 ">
+          <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
+          <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
+            <p class="text-sm">Full Moon</p>
+            <hr class="mb-1">
+            <p class="text-xs"><i class="fa fa-map-marker"></i> Kolkata, India</p>
+          </figcaption>
+        </figure>
+        {{ end }}
+      </div>
+
+      <!-- Duwara -->
+      <div class="row-span-2 col-span-3">
+        {{ $image := resources.Get "images/gallery/DuaraStarTrail.png" }}
+        {{ $image := $image.Fill "1200x800" }} 
+        {{ with $image }}
       <figure class="relative h-full group  transition-all  duration-500 ">
-        <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
-        <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
-          <p class="text-sm">Milky way from Langza</p>
-          <hr class="mb-1">
-          <p class="text-xs"><i class="fa fa-map-marker"></i> Naggad, Himachal Pradesh, India</p>
-        </figcaption>
-      </figure>
-      {{ end }}
-    </div>
-
-    <!-- Moon -->
-    <div class="row-span-2 col-span-2">
-      {{ $image := resources.Get "images/gallery/FullMoon.png" }} {{ with
-      $image }}
-      <figure class="relative h-full group  transition-all  duration-500 ">
-        <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
-        <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
-          <p class="text-sm">Full Moon</p>
-          <hr class="mb-1">
-          <p class="text-xs"><i class="fa fa-map-marker"></i> Kolkata, India</p>
-        </figcaption>
-      </figure>
-      {{ end }}
-    </div>
-
-    <!-- Duwara -->
-    <div class="row-span-2 col-span-3">
-      {{ $image := resources.Get "images/gallery/DuaraStarTrail.png" }} {{ with
-      $image }}
-     <figure class="relative h-full group  transition-all  duration-500 ">
-        <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
-        <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
-          <p class="text-sm">Perpendicular axis Star Trail </p>
-          <hr class="mb-1">
-          <p class="text-xs"><i class="fa fa-map-marker"></i> Duwara, Himachal Pradesh, India</p>
-        </figcaption>
-      </figure>
-      {{ end }}
-    </div>
-    <!-- Polaris -->
-    <div class="row-span-3 col-span-4">
-      {{ $image := resources.Get "images/gallery/PolarisStarTrail.png" }} {{
-      with $image }}
-      <figure class="relative h-full group  transition-all  duration-500 ">
-        <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
-        <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
-          <p class="text-sm">Polaris centered Star Trail</p>
-          <hr class="mb-1">
-          <p class="text-xs"><i class="fa fa-map-marker"></i> Duwara, Himachal Pradesh, India</p>
-        </figcaption>
-      </figure>
-      {{ end }}
-    </div>
-    <!-- Naggad -->
-    <div class="row-span-2 col-span-3">
-      {{ $image := resources.Get "images/gallery/NaggadStarTrail.png" }} {{ with
-      $image }}
+          <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
+          <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
+            <p class="text-sm">Perpendicular axis Star Trail </p>
+            <hr class="mb-1">
+            <p class="text-xs"><i class="fa fa-map-marker"></i> Duwara, Himachal Pradesh, India</p>
+          </figcaption>
+        </figure>
+        {{ end }}
+      </div>
+      
+      <!-- Polaris -->
+      <div class="row-span-3 col-span-4">
+        {{ $image := resources.Get "images/gallery/PolarisStarTrail.png" }} {{
+        with $image }}
+        <figure class="relative h-full group  transition-all  duration-500 ">
+          <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
+          <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
+            <p class="text-sm">Polaris centered Star Trail</p>
+            <hr class="mb-1">
+            <p class="text-xs"><i class="fa fa-map-marker"></i> Duwara, Himachal Pradesh, India</p>
+          </figcaption>
+        </figure>
+        {{ end }}
+      </div>
+      
+      <!-- Naggad -->
+      <div class="row-span-2 col-span-3">
+        {{ $image := resources.Get "images/gallery/NaggadStarTrail.png" }} 
+        {{ $image := $image.Resize "800x" }} 
+        {{ with $image }}
 
 
-      <figure class="relative h-full group  transition-all  duration-500 ">
-        <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
-        <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
-          <p class="text-sm">My first Star Trail</p>
-          <hr class="mb-1">
-          <p class="text-xs"><i class="fa fa-map-marker"></i> Naggad, Himachal Pradesh, India</p>
-        </figcaption>
-      </figure>
-      {{ end }}
-    </div>
+        <figure class="relative h-full group  transition-all  duration-500 ">
+          <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
+          <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
+            <p class="text-sm">My first Star Trail</p>
+            <hr class="mb-1">
+            <p class="text-xs"><i class="fa fa-map-marker"></i> Naggad, Himachal Pradesh, India</p>
+          </figcaption>
+        </figure>
+        {{ end }}
+      </div>
 
+      <!-- Night sky -->
+      <div class="row-span-3 col-span-2">
+        {{ $image := resources.Get "images/gallery/LangzaBuddhaMilkyWay.png" }} {{
+        with $image }}
 
-    <!-- Night sky -->
-    <div class="row-span-3 col-span-2">
-      {{ $image := resources.Get "images/gallery/LangzaBuddhaMilkyWay.png" }} {{
-      with $image }}
+        <figure class="relative h-full group  transition-all  duration-500 ">
+          <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
+          <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
+            <p class="text-sm">Milky way from Langza</p>
+            <hr class="mb-1">
+            <p class="text-xs"><i class="fa fa-map-marker"></i> Spiti Valley, India</p>
+          </figcaption>
+        </figure>
 
-      <figure class="relative h-full group  transition-all  duration-500 ">
-        <img class="h-full object-cover rounded-xl" src="{{ .RelPermalink }}" alt="image description">
-        <figcaption class="absolute opacity-0 px-4 text-lg text-white bottom-6 group-hover:opacity-100 group-focus:opacity-100 duration-300">
-          <p class="text-sm">Milky way from Langza</p>
-          <hr class="mb-1">
-          <p class="text-xs"><i class="fa fa-map-marker"></i> Spiti Valley, India</p>
-        </figcaption>
-      </figure>
-
-      {{ end }}
+        {{ end }}
+      </div>
     </div>
   </div>
-</div>
-</div>
+</section>

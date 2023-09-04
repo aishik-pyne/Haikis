@@ -21,10 +21,15 @@
       {{ .Date.Format "Jan 2, 2006" }} · {{ .Params.Author | default
       .Site.Params.Author}} · {{ .ReadingTime }} min
     </p>
+    
     <p class="mb-1 text-sm font-normal text-gray-500 dark:text-gray-500">
-      {{ if .Params.Tags}} {{ $list := (.Params.Tags) }} {{ $len := (len $list)
-      }} {{ range $index, $tag := .Params.Tags}} {{$len }}{{ $index}} {{ $tag }}
-      {{if (eq $index $len)}} , {{.}} {{end}} {{ end }} {{ end }}
+      {{ if .Params.Tags}} {{ $list := (.Params.Tags) }} 
+        {{ $len := (len $list)}} 
+        {{ range $index, $tag := .Params.Tags}} 
+ 
+          <button type="button" class="px-2 py-1 text-xs font-medium text-center text-white bg-blue-700 rounded-full hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{.}}</button>
+        {{ end }} 
+      {{ end }}
     </p>
     <div
       class="prose prose-sm mb-3 font-normal text-gray-700 dark:prose-invert dark:text-gray-400"
