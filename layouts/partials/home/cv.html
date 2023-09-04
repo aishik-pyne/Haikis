@@ -4,45 +4,48 @@
   class="max-w-7xl mx-auto w-full px-4 tablet:px-8 mt-8 tablet:mt-12 desktop:mt-16"
 >
   <div class="relative max-w-2xl tablet:max-w-3xl desktop:max-w-5xl mx-auto px-4 tablet:px-4 desktop:px-8">
-    {{/*  Title: CV  */}}
-    <div class="text-pink-500 text-2xl mb-8 font-bold">Curriculum Vitae</div>
-          
-    {{/*  Tabs Content  */}}
-    <div
-      class="hidden rounded-lg "
-      id="profile"
-      role="tabpanel"
-      aria-labelledby="profile-tab"
-    >
-      
-    {{/*  Collect all CV item types  */}}
-    {{ $cvItems := where $.Site.RegularPages "Section" "cv"}}
 
-    {{ $data := newScratch}}
-    {{range $cvItems }}
-      {{ $data.Add "cvcategories" (slice .Params.Type) }}
-    {{end}}
+    <div class="relative px-4 tablet:px-6 desktop:px-12">
 
-    {{/*  Display according to Categories  */}}
-    {{ range $catIdx, $catVal := ($data.Get "cvcategories" | uniq) }}
-    <div
-            class="mb-4 rounded-lgp-5"
-          >
+      {{/*  Title: CV  */}}
+      <div class="text-pink-500 text-2xl mb-8 font-bold">Curriculum Vitae</div>
             
-            <h2 class="text-base font-semibold text-zinc-900 dark:text-white"
-              >{{ strings.FirstUpper .}}</h2
-            >
-            <ol class="text-sm mt-3 ">
-              {{ range $pageIdx, $pageVal := (sort (where $cvItems "Params.Type" "in" $catVal) "Params.to" "desc")}}
-              {{ $timelineIdx := printf "%v-%v" $catVal $pageIdx}}
-              {{ partial "common/cv_item.html" (dict "context" $pageVal "timelineIdx" $timelineIdx  ) }}
-              {{ end }}
-            </ol>
-    </div>
-    {{end}}
-    </div>
+      {{/*  Tabs Content  */}}
+      <div
+        class="hidden rounded-lg "
+        id="profile"
+        role="tabpanel"
+        aria-labelledby="profile-tab"
+      >
+        
+      {{/*  Collect all CV item types  */}}
+      {{ $cvItems := where $.Site.RegularPages "Section" "cv"}}
 
-      
+      {{ $data := newScratch}}
+      {{range $cvItems }}
+        {{ $data.Add "cvcategories" (slice .Params.Type) }}
+      {{end}}
+
+      {{/*  Display according to Categories  */}}
+      {{ range $catIdx, $catVal := ($data.Get "cvcategories" | uniq) }}
+      <div
+              class="mb-4 rounded-lgp-5"
+            >
+              
+              <h2 class="text-base font-semibold text-zinc-900 dark:text-white"
+                >{{ strings.FirstUpper .}}</h2
+              >
+              <ol class="text-sm mt-3 ">
+                {{ range $pageIdx, $pageVal := (sort (where $cvItems "Params.Type" "in" $catVal) "Params.to" "desc")}}
+                {{ $timelineIdx := printf "%v-%v" $catVal $pageIdx}}
+                {{ partial "common/cv_item.html" (dict "context" $pageVal "timelineIdx" $timelineIdx  ) }}
+                {{ end }}
+              </ol>
+      </div>
+      {{end}}
+      </div>
+
+    </div>
 
   </div>
 </section>

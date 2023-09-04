@@ -1,52 +1,54 @@
 <section
   id="projects"
-  class="mx-auto mt-8 w-full max-w-7xl px-4 tablet:mt-12 tablet:px-8 desktop:mt-16"
+  class="max-w-7xl mx-auto w-full px-4 tablet:px-8 mt-8 tablet:mt-12 desktop:mt-16"
 >
-  <div class="relative mx-auto max-w-2xl px-4 tablet:max-w-3xl tablet:px-4 desktop:max-w-5xl desktop:px-8">
-    <div class="mb-8 text-2xl font-bold text-pink-500">Projects</div>
+  <div class="relative mx-auto max-w-2xl px-4 tablet:max-w-3xl desktop:max-w-5xl tablet:px-4 desktop:px-8">
+    <div class="relative px-4 tablet:px-6 desktop:px-12">
+      <div class="mb-8 text-2xl font-bold text-pink-500">Projects</div>
 
-    <div class="grid grid-cols-1 gap-8 tablet:grid-cols-2 desktop:grid-cols-3">
-      {{ $projects := .Site.Taxonomies.categories.projects}}
-      {{ range $page := first 3 (sort $projects "Date" "desc") }}
+      <div class="grid grid-cols-1 gap-8 tablet:grid-cols-2 desktop:grid-cols-3">
+        {{ $projects := .Site.Taxonomies.categories.projects}}
+        {{ range $page := first 3 (sort $projects "Date" "desc") }}
 
-        <li class="group relative flex flex-col items-start">
-          {{ $thumbnail := "https://flowbite.com/docs/images/blog/image-1.jpg" }} 
-          {{ if .Params.thumbnail }} 
-          {{ $thumbnail = (path.Join .RelPermalink .Params.thumbnail) }} 
-          {{ end }}
-          {{/*  <img class="aspect-[4/3] rounded-t-lg object-cover" src="{{ $thumbnail }}" alt="" />  */}}
-          {{/*  <div
-            class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
-          >
-          <img
-              alt=""
-              loading="lazy"
-
-              decoding="async"
-              data-nimg="1"
-              class="aspect-[4/3] rounded-t-lg object-cover"
-              src="{{ $thumbnail }}"
-              style="color: transparent"
-            />
-          </div>  */}}
-          <time class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5" datetime="{{ .Date.Format "Jan 2, 2006" }}"><span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true"><span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span></span>{{ .Date.Format "Jan 2, 2006" }} </time>
-          <h2
-            class="text-base font-semibold text-zinc-800 dark:text-zinc-100"
-          >
-            <div
-              class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"
-            ></div>
-            <a href="{{ .Permalink }}">
-              <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
-              <span class="relative z-10">{{ .Title }}</span></a
+          <li class="group relative flex flex-col items-start">
+            {{ $thumbnail := "https://flowbite.com/docs/images/blog/image-1.jpg" }} 
+            {{ if .Params.thumbnail }} 
+            {{ $thumbnail = (path.Join .RelPermalink .Params.thumbnail) }} 
+            {{ end }}
+            {{/*  <img class="aspect-[4/3] rounded-t-lg object-cover" src="{{ $thumbnail }}" alt="" />  */}}
+            {{/*  <div
+              class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
             >
-          </h2>
-          <div class="grow relative z-10 mt-2 prose prose-sm text-zinc-600 dark:text-zinc-400">
-            {{ .Summary }}
-          </div>
-          <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-pink-500">See Details<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="ml-1 h-4 w-4 stroke-current"><path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-        </li>
-      {{ end }}
+            <img
+                alt=""
+                loading="lazy"
+
+                decoding="async"
+                data-nimg="1"
+                class="aspect-[4/3] rounded-t-lg object-cover"
+                src="{{ $thumbnail }}"
+                style="color: transparent"
+              />
+            </div>  */}}
+            <time class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5" datetime="{{ .Date.Format "Jan 2, 2006" }}"><span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true"><span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span></span>{{ .Date.Format "Jan 2, 2006" }} </time>
+            <h2
+              class="text-base font-semibold text-zinc-800 dark:text-zinc-100"
+            >
+              <div
+                class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"
+              ></div>
+              <a href="{{ .Permalink }}">
+                <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
+                <span class="relative z-10">{{ .Title }}</span></a
+              >
+            </h2>
+            <div class="grow relative z-10 mt-2 prose prose-sm text-zinc-600 dark:text-zinc-400">
+              {{ .Summary }}
+            </div>
+            <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-pink-500">See Details<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="ml-1 h-4 w-4 stroke-current"><path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          </li>
+        {{ end }}
+      </div>
     </div>
   </div>
 </section>

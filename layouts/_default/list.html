@@ -1,78 +1,89 @@
-{{- define "main" }} {{- $pages := union .RegularPages .Sections }} {{-
-$paginator := .Paginate $pages }}
+{{- define "main" }} 
 
-<div class="container m-6 mx-auto max-w-screen-desktop px-4 tablet:px-8">
-  <div class="grid grid-cols-1 gap-4 tablet:grid-cols-3">
-    {{- range $index, $page := $paginator.Pages }}
-    {{ partial "common/post_card.html" $page }}
-    
-    {{ end }}
-  </div>
-
-  {{- if gt $paginator.TotalPages 0 }}
-  <p>PageNumber {{$paginator.PageNumber}}</p>
-  <p> URL {{$paginator.URL}}</p>
-  <p>{{$paginator.Pages}}</p>
-  <p>{{$paginator.NumberOfElements}}</p>
-  <p>{{$paginator.PageNumber}}</p>
-  <p>{{$paginator.PageNumber}}</p>
-  <p>{{$paginator.PageNumber}}</p>
-  <p>{{$paginator.PageNumber}}</p>
-<footer class="page-footer">
-  <nav class="pagination">
-    {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
-      «&nbsp;{{ i18n "prev_page" }}&nbsp;
-      {{- if (.Param "ShowPageNums") }}
-      {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
-      {{- end }}
-    </a>
-    {{- end }}
-    {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL | absURL }}">
-      {{- i18n "next_page" }}&nbsp;
-      {{- if (.Param "ShowPageNums") }}
-      {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
-      {{- end }}&nbsp;»
-    </a>
-    {{- end }}
-  </nav>
-</footer>
-{{- end }}
+{{- $pages := union .RegularPages .Sections }} 
+{{- $paginator := .Paginate $pages }}
 
 
-<div class="container m-6 mx-auto max-w-screen-desktop px-4 tablet:px-8">
-<nav aria-label="Page navigation example" class="text-center">
-    <ul class="inline-flex -space-x-px">
-        {{- if $paginator.HasPrev }}
-      <li>
+<section class="max-w-7xl mx-auto w-full px-4 tablet:px-8 mt-8 tablet:mt-12 desktop:mt-16">
+    <div class="relative max-w-2xl tablet:max-w-3xl desktop:max-w-5xl mx-auto px-4 tablet:px-4 desktop:px-8">
+
+      <div class="relative px-4 tablet:px-6 desktop:px-12">
+
+        <header class="max-w-2xl mb-16 tablet:mb-20">
+          <h1 class="text-4xl font-bold -tracking-tight tablet:leading-snug text-zinc-800 dark:text-zinc-100 tablet:text-5xl">{{ .Params.Heading }}</h1>
+          <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">{{ .Params.Subheading }}</p>
+        </header>
+
+        {{/*  All Articles  */}}
+        <div class="flex flex-col gap-16 max-w-2xl mb-16 tablet:mb-20">
+          {{- range $index, $page := $paginator.Pages }}
+            <article class="group relative flex flex-col items-start">
+              <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                  <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
+                  <a href="{{ .Permalink }}"><span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span><span class="relative z-10">{{ .Title }}</span></a>
+              </h2>
+              <time class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5" datetime="2022-09-05"><span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true"><span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span></span>{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min</time>
+              
+              <div class="max-w-none relative z-10 mt-2 prose prose-sm text-zinc-600 prose-a:dark:text-zinc-400 prose-a:text-zinc-600 dark:text-zinc-400">
+                  {{ .Summary}}
+              </div>
+          <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-pink-500">Read article<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="ml-1 h-4 w-4 stroke-current"><path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+          </article>
+          {{ end }}
+        </div>
         
-        <a href="#" class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-      </li>
-      {{- end }}
-      <li>
-        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-      </li>
-      <li>
-        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-      </li>
-      <li>
-        <a href="#" aria-current="page" class="px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
-      </li>
-      <li>
-        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-      </li>
-      <li>
-        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-      </li>
-      {{- if $paginator.HasNext }}
-      <li>
-        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-      </li>
-      {{- end}}
-    </ul>
-</nav>
-</div>
+        {{/*  Pagination  */}}
+        {{- if gt $paginator.TotalPages 0 }}
+        <footer class="page-footer">
+          <nav class="pagination">
+            <!-- Help text -->
+            <span class="text-sm text-zinc-500 dark:text-zinc-400">
+                Showing Page <span class="font-semibold text-zinc-900 dark:text-white">{{ $paginator.PageNumber }}</span> of <span class="font-semibold text-zinc-900 dark:text-white">{{ $paginator.TotalPages }}</span> Pages
+            </span>
+        
+            {{- if $paginator.HasPrev }}
+            <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
+              «&nbsp;{{ i18n "prev_page" }}&nbsp;
+              {{- if (.Param "ShowPageNums") }}
+              {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
+              {{- end }}
+            </a>
+              <!-- Previous Button -->
+            <a href="{{ $paginator.Prev.URL | absURL }}" 
+              class="flex items-center justify-center px-3 h-8 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <svg class="w-3.5 h-3.5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+              </svg>
+              Previous
+            </a>
+            {{- end }}
+        
+            {{- if $paginator.HasNext }}
+            <a class="next" href="{{ $paginator.Next.URL | absURL }}">
+              {{- i18n "next_page" }}&nbsp;
+              {{- if (.Param "ShowPageNums") }}
+              {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
+              {{- end }}&nbsp;»
+            </a>
+            <a href="#" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              Next
+              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
+            </a>
+            {{- end }}
+          </nav>
+        </footer>
+        {{- end }}
+
+      </div>
+
+    </div>
+</section>
+<div class="max-w-prose m-6 mx-auto px-4 tablet:px-8">
+
+
 
 </div>
-{{ end }}
+
+{{- end }}
