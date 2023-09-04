@@ -3109,6 +3109,11 @@ input:checked + .toggle-bg {
   border-color: rgb(231 70 148 / var(--tw-border-opacity));
 }
 
+.focus\:border-pink-900:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(117 26 61 / var(--tw-border-opacity));
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -3148,6 +3153,11 @@ input:checked + .toggle-bg {
 .focus\:ring-zinc-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(113 113 122 / var(--tw-ring-opacity));
+}
+
+.focus\:ring-pink-900:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(117 26 61 / var(--tw-ring-opacity));
 }
 
 .active\:bg-zinc-100:active {
@@ -3624,6 +3634,11 @@ input:checked + .toggle-bg {
 
   .tablet\:order-2 {
     order: 2;
+  }
+
+  .tablet\:my-3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .tablet\:mb-0 {

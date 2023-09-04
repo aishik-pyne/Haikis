@@ -11,7 +11,7 @@
     </div>
 
 
-    <div class="">
+    <div class="px-4">
       <!-- Name and Email -->
       <div
         class="prose font-normal font-sans
@@ -67,7 +67,7 @@
         {{/* Email */}}
         <a
           href="mailto: {{ .Site.Params.contactInformation.email }}"
-          class="hidden rounded-lg p-2.5 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 sm:inline-block"
+          class="hidden rounded-lg p-1 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 sm:inline-block"
         >
           <i
             class="fa-solid fa-envelope rounded-lg px-1 py-1 text-xl text-zinc-500 hover:bg-zinc-50 focus:outline-none focus:ring-4 focus:ring-zinc-500 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 tablet:text-2xl"
@@ -78,7 +78,7 @@
         {{ range $elem_index, $elem_val := .Site.Params.socialMedia }}
         <a
           href="{{ $elem_val }}"
-          class="hidden rounded-lg p-2.5 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 sm:inline-block"
+          class="hidden rounded-lg p-1 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 sm:inline-block"
         >
           <i
             class="fa-brands fa-{{ $elem_index }} rounded-lg py-1 px-1 text-xl text-zinc-500 hover:bg-zinc-50 focus:outline-none focus:ring-4 focus:ring-zinc-500 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 tablet:text-2xl"
