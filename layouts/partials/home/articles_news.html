@@ -1,18 +1,16 @@
-<section
-  class="max-w-7xl mx-auto w-full px-4 tablet:px-8 mt-8 tablet:mt-12 desktop:mt-16"
->
-    <div class="relative max-w-2xl tablet:max-w-3xl desktop:max-w-5xl mx-auto px-4 tablet:px-4 desktop:px-8">
-        
+<section id="articles_news" class="max-w-7xl mx-auto w-full 
+        px-4 tablet:px-8
+        mt-8 tablet:mt-12 desktop:mt-16">
+    <div class="relative mx-auto 
+            max-w-2xl tablet:max-w-4xl desktop:max-w-5xl
+            tablet:px-4 desktop:px-8">
+        <div class="relative tablet:px-4 desktop:px-6">
 
-        <div class="relative px-4 tablet:px-6 desktop:px-12">
-
-       
             <div class="grid grid-cols-1 tablet:grid-cols-2 gap-8">
                 {{ partial "common/top_articles.html" . }}
-                
+
                 <div class="flex flex-col gap-8 tablet:pl-8 desktop:pl-12">
                     {{ partial "common/top_news.html" . }}
-                    {{/*  {{ partial "home/news.html" . }}  */}}
                     {{ partial "common/subscribe_newsletter.html" }}
                 </div>
             </div>

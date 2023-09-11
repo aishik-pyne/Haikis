@@ -1,93 +1,79 @@
-<section
-  class="container m-6 mt-16 mx-auto max-w-screen-desktop px-4 tablet:px-8"
->
-  <div class="grid grid-cols-1 justify-center tablet:grid-cols-2">
-    {{/*  Image  */}}
-    <div
-      class="mb-4 flex w-64 mx-auto flex-col justify-center tablet:pr-8 tablet:mb-0 tablet:w-80"
-    >
-      {{ $image := resources.Get "images/AishikPyneDP.jpeg" }}
-      <img class="rounded-full " src="{{ $image.RelPermalink }}" alt="" />
+<section id="bio" class="max-w-7xl mx-auto w-full 
+        px-4 tablet:px-8
+        mt-8 tablet:mt-12 desktop:mt-16">
+    <div class="relative mx-auto 
+        max-w-2xl tablet:max-w-4xl desktop:max-w-5xl
+        tablet:px-4 desktop:px-8">
+        <div class="relative tablet:px-4 desktop:px-6">
+
+
+            <div class="grid grid-cols-1 justify-center tablet:grid-cols-2 gap-2 tablet:gap-4">
+                {{/* Image */}}
+                <div class="flex shrink w-64 mx-auto flex-col justify-center tablet:pr-8 tablet:w-80">
+                    {{ $image := resources.Get "images/AishikPyneDP.jpeg" }}
+                    <img class="rounded-full " src="{{ $image.RelPermalink }}" alt="" />
+                </div>
+
+
+                <div class="flex flex-col tablet:px-4">
+                    <!-- Name and Email -->
+                    <div class="grow prose font-normal font-sans
+                    prose-lead:leading-snug
+                    text-base 
+                    text-zinc-600 dark:text-zinc-400
+                    prose-a:text-zinc-700 dark:prose-a:text-zinc-300
+                    prose-a:no-underline 
+                    prose-a:hover:text-zinc-500
+                    ">
+                        <p>
+                            I’m Aishik, a Master’s in AI student at, National University of Singapore,
+                            advised by
+                            <a href="https://www.comp.nus.edu.sg/~dyhsu/">Prof. David Hsu.</a>
+
+                            My research interests are Robot Learning using LLMs.
+                        </p>
+                        <p>
+                            Previously I was a software Engineer at Microsoft IDC, India where I
+                            worked on Azure Blockchain, Agriculture and Financial Cloud Teams,
+                            where I had the privilege to work with
+                            <a href="https://www.linkedin.com/in/anil-bhansali-6761703/?originalSubdomain=in"
+                                class="font-medium ">Anil
+                                Bhansal</a>,
+                            <a href="https://www.linkedin.com/in/rajesh-jalan-45b7a0/?originalSubdomain=in"
+                                class="font-medium text-zinc-600 hover:underline dark:text-zinc-400">Rajesh Jalan</a>,
+                            <a href="https://www.linkedin.com/in/anuragkj/?originalSubdomain=in"
+                                class="font-medium text-zinc-600 hover:underline dark:text-zinc-400">Anurag Kumar</a>
+                            <a href="https://www.linkedin.com/in/loganathan-ramalingam-4a6673128/?originalSubdomain=in"
+                                class="font-medium text-zinc-600 hover:underline dark:text-zinc-400">Loganathan
+                                Ramalingam</a>
+                        </p>
+                    </div>
+
+
+                    <!-- Icons -->
+                    <div class="mb-2 flex flex-row justify-center gap-0 order-first tablet:order-last">
+                        {{/* Email */}}
+                        <a href="mailto: {{ .Site.Params.contactInformation.email }}"
+                            class="inline-block rounded-lg p-1 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700">
+                            <i
+                                class="fa-solid fa-envelope rounded-lg px-1 py-1 text-xl text-zinc-500 hover:bg-zinc-50 focus:outline-none focus:ring-4 focus:ring-zinc-500 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 tablet:text-2xl">
+                            </i>
+                        </a>
+                        {{/* Social Media Links */}}
+                        {{ range $elem_index, $elem_val := .Site.Params.socialMedia }}
+                        <a href="{{ $elem_val }}"
+                            class="inline-block rounded-lg p-1 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700">
+                            <i
+                                class="fa-brands fa-{{ $elem_index }} rounded-lg py-1 px-1 text-xl text-zinc-500 hover:bg-zinc-50 focus:outline-none focus:ring-4 focus:ring-zinc-500 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 tablet:text-2xl">
+                            </i>
+                        </a>
+
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-
-
-    <div class="px-4">
-      <!-- Name and Email -->
-      <div
-        class="prose font-normal font-sans
-              prose-lead:leading-snug
-              text-base 
-            text-zinc-600 dark:text-zinc-400
-            prose-a:text-zinc-700 dark:prose-a:text-zinc-300
-            prose-a:no-underline 
-            prose-a:hover:text-zinc-500
-             "
-      >
-        <p>
-          I’m Aishik, a Master’s in AI student at, National University of Singapore,
-          advised by
-          <a
-            href="https://www.comp.nus.edu.sg/~dyhsu/"
-            
-            >Prof. David Hsu.</a
-          >
-
-          My research interests are Robot Learning using LLMs.
-        </p>
-        <p>
-          Previously I was a software Engineer at Microsoft IDC, India where I
-          worked on Azure Blockchain, Agriculture and Financial Cloud Teams,
-          where I had the privilege to work with
-          <a
-            href="https://www.linkedin.com/in/anil-bhansali-6761703/?originalSubdomain=in"
-            class="font-medium "
-            >Anil Bhansal</a
-          >,
-          <a
-            href="https://www.linkedin.com/in/rajesh-jalan-45b7a0/?originalSubdomain=in"
-            class="font-medium text-zinc-600 hover:underline dark:text-zinc-400"
-            >Rajesh Jalan</a
-          >,
-          <a
-            href="https://www.linkedin.com/in/anuragkj/?originalSubdomain=in"
-            class="font-medium text-zinc-600 hover:underline dark:text-zinc-400"
-            >Anurag Kumar</a
-          >
-          <a
-            href="https://www.linkedin.com/in/loganathan-ramalingam-4a6673128/?originalSubdomain=in"
-            class="font-medium text-zinc-600 hover:underline dark:text-zinc-400"
-            >Loganathan Ramalingam</a
-          >
-        </p>
-      </div>
-
-
-      <!-- Icons -->
-      <div class="mb-2 flex flex-row justify-center gap-0">
-        {{/* Email */}}
-        <a
-          href="mailto: {{ .Site.Params.contactInformation.email }}"
-          class="hidden rounded-lg p-1 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 sm:inline-block"
-        >
-          <i
-            class="fa-solid fa-envelope rounded-lg px-1 py-1 text-xl text-zinc-500 hover:bg-zinc-50 focus:outline-none focus:ring-4 focus:ring-zinc-500 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 tablet:text-2xl"
-          >
-          </i>
-        </a>
-        {{/* Social Media Links */}} 
-        {{ range $elem_index, $elem_val := .Site.Params.socialMedia }}
-        <a
-          href="{{ $elem_val }}"
-          class="hidden rounded-lg p-1 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 sm:inline-block"
-        >
-          <i
-            class="fa-brands fa-{{ $elem_index }} rounded-lg py-1 px-1 text-xl text-zinc-500 hover:bg-zinc-50 focus:outline-none focus:ring-4 focus:ring-zinc-500 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700 tablet:text-2xl"
-          >
-          </i>
-        </a>
-
-        {{ end }}
-      </div>
-    </div>
-  </div>
 </section>

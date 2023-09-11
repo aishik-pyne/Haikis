@@ -1,49 +1,60 @@
+<section id="cv" class="max-w-7xl mx-auto w-full 
+        px-4 tablet:px-8
+        mt-8 tablet:mt-12 desktop:mt-16">
+  <div class="relative mx-auto 
+        max-w-2xl tablet:max-w-4xl desktop:max-w-5xl
+        tablet:px-4 desktop:px-8">
+    <div class="relative tablet:px-4 desktop:px-6">
 
-<section
-  id="cv"
-  class="max-w-7xl mx-auto w-full px-4 tablet:px-8 mt-8 tablet:mt-12 desktop:mt-16"
->
-  <div class="relative max-w-2xl tablet:max-w-3xl desktop:max-w-5xl mx-auto px-4 tablet:px-4 desktop:px-8">
+      {{/* Title: CV */}}
+      <div class="mb-8 text-2xl font-bold text-pink-500">Curriculum Vitae</div>
 
-    <div class="relative px-4 tablet:px-6 desktop:px-12">
+      {{/* Tabs Content */}}
+      <div class="rounded-lg">
 
-      {{/*  Title: CV  */}}
-      <div class="text-pink-500 text-2xl mb-8 font-bold">Curriculum Vitae</div>
-            
-      {{/*  Tabs Content  */}}
-      <div
-        class="hidden rounded-lg "
-        id="profile"
-        role="tabpanel"
-        aria-labelledby="profile-tab"
-      >
-        
-      {{/*  Collect all CV item types  */}}
-      {{ $cvItems := where $.Site.RegularPages "Section" "cv"}}
+        {{/* Collect all CV item types */}}
+        {{ $cvItems := where $.Site.RegularPages "Section" "cv"}}
 
-      {{ $data := newScratch}}
-      {{range $cvItems }}
+        {{ $data := newScratch}}
+        {{range $cvItems }}
         {{ $data.Add "cvcategories" (slice .Params.Type) }}
-      {{end}}
+        {{end}}
 
-      {{/*  Display according to Categories  */}}
-      {{ range $catIdx, $catVal := ($data.Get "cvcategories" | uniq) }}
-      <div
-              class="mb-4 rounded-lgp-5"
-            >
-              
-              <h2 class="text-base font-semibold text-zinc-900 dark:text-white"
-                >{{ strings.FirstUpper .}}</h2
-              >
-              <ol class="text-sm mt-3 ">
-                {{ range $pageIdx, $pageVal := (sort (where $cvItems "Params.Type" "in" $catVal) "Params.to" "desc")}}
-                {{ $timelineIdx := printf "%v-%v" $catVal $pageIdx}}
-                {{ partial "common/cv_item.html" (dict "context" $pageVal "timelineIdx" $timelineIdx  ) }}
-                {{ end }}
-              </ol>
+        {{/* Display according to Categories */}}
+        {{ range $catIdx, $catVal := ($data.Get "cvcategories" | uniq) }}
+        <div class="mb-4 rounded-lgp-5">
+
+          <div class="md:border-l-2 md:border-zinc-200 md:pl-6 md:dark:border-zinc-700/40">
+
+            <div class="flex flex-row">
+              <div id="timeline" class="flex-none w-32">
+                <time class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5" datetime="2022-09-05">
+                  <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
+                    <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                  </span>
+                  {{ strings.FirstUpper .}}
+                </time>
+                <h2 class="text-base font-semibold text-zinc-900 dark:text-white">{{ strings.FirstUpper .}}</h2>
+              </div>
+              <div id="cv items" class="grow">
+                <ol class="w-full">
+                  {{ range $pageIdx, $pageVal := (sort (where $cvItems "Params.Type" "in" $catVal) "Params.to" "desc")}}
+                    {{ $timelineIdx := printf "%v-%v" $catVal $pageIdx}}
+                    {{ partial "common/cv_item.html" (dict "context" $pageVal "timelineIdx" $timelineIdx ) }}
+                  {{ end }}
+                </ol>
+              </div>
+            </div>
+           
+          </div>
+         
+        </div>
+        {{end}}
       </div>
-      {{end}}
-      </div>
+
+      <a 
+        class="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-pink-700 font-semibold text-zinc-100 hover:bg-pink-800 active:bg-zinc-800 active:text-zinc-100/70 dark:bg-pink-700 dark:hover:bg-pink-600 dark:active:bg-zinc-700 dark:active:text-zinc-100/70 ml-4 flex-none" 
+        href="{{ .Site.BaseURL }}/resume/Aishik_Pyne_Resume_2023Aug.pdf">Download CV</a>
 
     </div>
 
