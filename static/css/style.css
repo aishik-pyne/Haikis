@@ -2718,6 +2718,10 @@ input:checked + .toggle-bg {
   padding-top: 0.5rem;
 }
 
+.pl-8 {
+  padding-left: 2rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3698,6 +3702,10 @@ input:checked + .toggle-bg {
     flex-wrap: wrap;
   }
 
+  .tablet\:items-center {
+    align-items: center;
+  }
+
   .tablet\:justify-center {
     justify-content: center;
   }
@@ -3722,6 +3730,14 @@ input:checked + .toggle-bg {
 
   .tablet\:pr-8 {
     padding-right: 2rem;
+  }
+
+  .tablet\:pl-6 {
+    padding-left: 1.5rem;
+  }
+
+  .tablet\:pl-12 {
+    padding-left: 3rem;
   }
 
   .tablet\:text-2xl {
@@ -3801,6 +3817,11 @@ input:checked + .toggle-bg {
   .desktop\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .desktop\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .desktop\:pl-12 {

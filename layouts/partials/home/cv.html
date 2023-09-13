@@ -26,15 +26,15 @@
 
           <div class="md:border-l-2 md:border-zinc-200 md:pl-6 md:dark:border-zinc-700/40">
 
-            <div class="flex flex-row">
+            <div class="flex flex-col tablet:flex-row">
               <div id="timeline" class="flex-none w-32">
-                <time class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5" datetime="2022-09-05">
-                  <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
+                <p class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5" datetime="2022-09-05">
+                  {{/*  <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
                     <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
-                  </span>
+                  </span>  */}}
                   {{ strings.FirstUpper .}}
-                </time>
-                <h2 class="text-base font-semibold text-zinc-900 dark:text-white">{{ strings.FirstUpper .}}</h2>
+                </p>
+                {{/*  <h2 class="text-base font-semibold text-zinc-900 dark:text-white">{{ strings.FirstUpper .}}</h2>  */}}
               </div>
               <div id="cv items" class="grow">
                 <ol class="w-full">

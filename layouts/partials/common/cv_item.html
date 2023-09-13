@@ -8,7 +8,9 @@
     <div id="accordion-collapse-heading-{{ .timelineIdx }}" class="m0 w-full">
         <button
           type="button"
-          class="flex w-full cursor-zoom-in items-center justify-start bg-inherit text-left font-medium text-gray-500 dark:bg-inherit dark:text-gray-400"
+          class="flex flex-row w-full
+                items-start tablet:items-center justify-start 
+              cursor-zoom-in  bg-inherit text-left font-medium text-gray-500 dark:bg-inherit dark:text-gray-400"
           data-accordion-target="#accordion-collapse-body-{{ .timelineIdx }}"
           aria-expanded="false"
           aria-controls="accordion-collapse-body-{{ .timelineIdx }}"
@@ -20,27 +22,28 @@
             alt="{{ .catIdx }} Logo"
           />
 
-          {{/*  Short Details  */}}
-          <div class="grow px-2">
-
-            <div>
-              <span class="text-base font-semibold text-gray-900 dark:text-white">{{ .context.Params.Title }}</span>
-            </div>
-            <span class="text-base font-normal text-gray-500 dark:text-gray-400 pr-2">{{ trim .context.Params.Organization " "}} · {{ trim .context.Params.Location " "}}</span>
-            <div>
+          {{/*  Logo & Short Details  */}}
+          <div class="flex flex-col tablet:flex-row grow">
+  
+            {{/*  Short Details  */}}
+            <div class="grow px-2">
+              <div>
+                <span class="text-base font-semibold text-gray-900 dark:text-white">{{ .context.Params.Title }}</span>
+              </div>
+              <span class="text-sm font-normal text-gray-500 dark:text-gray-400 pr-2">{{ trim .context.Params.Organization " "}} · {{ trim .context.Params.Location " "}}</span>
+              <div>
+              </div>
             </div>
             
-
+            {{/*  Date Range  */}}
+            <div class="px-2 text-sm font-normal text-gray-500 dark:text-gray-400 pr-2">
+              {{/*  <i class="fa-regular fa-calendar"></i>  */}}
+              <time>{{ time.Format "Jan 2006" .context.Params.From}}</time> &mdash;
+              <time>{{ time.Format "Jan 2006" .context.Params.to}}</time> 
+            </div>
+          
           </div>
           
-          {{/*  <div class="text-base font-normal text-gray-500 dark:text-gray-400 pr-2">{{ .context.Params.Location }}</div>  */}}
-          
-          <div class="text-sm font-normal text-gray-500 dark:text-gray-400 pr-2">
-            {{/*  <i class="fa-regular fa-calendar"></i>  */}}
-            <time>{{ time.Format "Jan 2006" .context.Params.From}}</time> &mdash;
-            <time>{{ time.Format "Jan 2006" .context.Params.to}}</time> 
-          </div>
-        
           {{/*  Dropdown icon  */}}
           <div class="flex mx-auto w-10 justify-center hover:bg-gray-100 dark:hover:bg-gray-700">
             <svg
@@ -57,11 +60,12 @@
               ></path>
             </svg>
           </div>
+
         </button>
     </div>
     <div
         id="accordion-collapse-body-{{ .timelineIdx }}"
-        class="prose max-w-none  dark:prose-invert pl-12 prose-sm leading-snug hidden"
+        class="prose max-w-none  dark:prose-invert pl-8 tablet:pl-12 prose-sm leading-snug hidden"
         aria-labelledby="accordion-collapse-heading-{{ .timelineIdx }}"
         >
         {{ .context.Content }}
