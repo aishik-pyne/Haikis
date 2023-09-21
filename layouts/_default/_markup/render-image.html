@@ -12,5 +12,5 @@
         <strong >{{ . | safeHTML }}: </strong>
         {{ end }}
         
-        {{ .Title | safeHTML }}</figcaption>
+        {{ .Title | safeHTML | markdownify }}</figcaption>
 </figure>
