@@ -1,14 +1,14 @@
 {{- define "main" }}
 
-<div class="max-w-prose m-6 mx-auto px-4 tablet:px-8">
+<div class="max-w-[720px] m-6 mx-auto px-4 tablet:px-8">
   {{/* Header */}}
-  <header class="not-format mb-4 lg:mb-6 max-w-prose">
+  <header class="not-format mb-4 lg:mb-6">
     <h1
       class="mb-2 text-3xl font-extrabold leading-tight text-gray-900 dark:text-white tablet:text-3xl"
     >
       {{ .Title }}
     </h1>
-    <p class="text-base font-light text-gray-500 dark:text-gray-400">
+    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
       {{ .Date.Format "Jan 2, 2006" }} · {{ .Params.Author | default
       .Site.Params.Author}} · {{ .ReadingTime }} min
     </p>
@@ -55,7 +55,8 @@
 
   {{/* Content */}}
   <article
-    class="prose prose-zinc max-w-[100ch] leading-relaxed mx-auto dark:prose-invert 
+    class="mx-auto prose prose-zinc dark:prose-invert 
+    prose-base max-w-full leading-relaxed  
     prose-img:mx-auto prose-img:rounded-lg 
     prose-figcaption:-mt-6 prose-figcaption:text-center"
   >
