@@ -7,6 +7,14 @@
     <link rel="stylesheet" type="text/css" href="{{ "css/style.css" | absURL }}">
     <script src="{{ "js/darkmode.js" | absURL }}"></script>
     <title>Aishik Pyne</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKMW1CE3H9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{.Site.Params.analytics.googleAnalytics4Id}}');
+    </script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
           TeX: {
