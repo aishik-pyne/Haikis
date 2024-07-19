@@ -6,8 +6,24 @@
     
     <link rel="stylesheet" type="text/css" href="{{ "css/style.css" | absURL }}">
     <script src="{{ "js/darkmode.js" | absURL }}"></script>
+    
     <title>Aishik Pyne</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GKMW1CE3H9"></script>
+    <meta name="author" content="Aishik Pyne">
+
+
+    {{/*  SEO  */}}
+    {{- if .IsHome -}}
+    <meta name="description" content="{{ site.Params.Description }}" />
+    {{- else -}}
+    <meta name="description" content="{{ .Params.Description }}" />
+    {{- end }}
+
+
+
+    
+    {{/*  Google Analytics support  */}}
+    {{ with .Site.Params.analytics.googleAnalytics4Id }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{.Site.Params.analytics.googleAnalytics4Id}}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -15,6 +31,10 @@
 
         gtag('config', '{{.Site.Params.analytics.googleAnalytics4Id}}');
     </script>
+    {{ end }}
+
+
+    {{/*  MathJax Support  */}}
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
           TeX: {

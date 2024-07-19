@@ -15,15 +15,12 @@
                 </div>
 
 
-                <div class="flex flex-col tablet:px-4">
+                <div class="flex flex-col tablet:px-4 my-2">
                     <!-- Name and Email -->
-                    <div class="grow prose font-normal font-sans
-                    prose-lead:leading-snug
-                    text-base 
+                    <div class="grow prose prose-zinc leading-snug
                     text-zinc-600 dark:text-zinc-400
                     prose-a:text-zinc-700 dark:prose-a:text-zinc-300
-                    prose-a:no-underline 
-                    prose-a:hover:text-zinc-500
+                    prose-a:no-underline prose-a:hover:text-zinc-500
                     ">
                         <p>
                             I’m Aishik, a Master’s in AI student at, National University of Singapore,
@@ -47,11 +44,12 @@
                                 class="font-medium text-zinc-600 hover:underline dark:text-zinc-400">Loganathan
                                 Ramalingam</a>
                         </p>
+                        <p>My research interest are robot learning and foundation models. I also work on Reinforcement Learning and Optimal Control</p>
                     </div>
 
 
                     <!-- Icons -->
-                    <div class="mb-2 flex flex-row justify-center gap-0 order-first tablet:order-last">
+                    <div class="flex flex-row justify-end gap-0 order-first tablet:order-last">
                         {{/* Email */}}
                         <a href="mailto: {{ .Site.Params.contactInformation.email }}"
                             class="inline-block rounded-lg p-1 text-sm text-zinc-500 hover:bg-zinc-100 focus:outline-none focus:ring-4 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-700">

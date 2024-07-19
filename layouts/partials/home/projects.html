@@ -6,11 +6,15 @@
             tablet:px-4 desktop:px-8">
         <div class="relative tablet:px-4 desktop:px-6">
 
-            {{/*  Title  */}}
-            <div class="mb-8 text-2xl font-bold text-pink-500">Projects</div>
-            
-            {{/*  Projects  */}}
-            <div class="grid grid-cols-1 gap-8 tablet:grid-cols-2 desktop:grid-cols-3">
+            {{/* Title */}}
+            <div class="mb-8 text-2xl font-bold text-pink-500 flex group">
+                <a href="/projects">
+                    Projects
+                </a>
+            </div>
+
+            {{/* Projects */}}
+            <div class="mb-6 grid grid-cols-1 gap-8 tablet:grid-cols-2 desktop:grid-cols-3">
                 {{ $projects := .Site.Taxonomies.categories.projects}}
                 {{ range $page := first 3 (sort $projects "Date" "desc") }}
 
@@ -51,6 +55,20 @@
                         </svg></div>
                 </li>
                 {{ end }}
+            </div>
+
+            <div class="flex justify-end text-justify items-end">
+                <a href="/projects">
+                <div aria-hidden="true" class="relative z-10 mt-4 flex items-center text-sm font-medium text-pink-500">
+                        All projects
+                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"
+                            class="ml-1 h-4 w-4 stroke-current">
+                            <path d="M6.75 5.75 9.25 8l-2.5 2.25" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </a>
+
             </div>
 
         </div>
