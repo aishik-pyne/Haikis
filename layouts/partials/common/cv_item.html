@@ -9,7 +9,7 @@
         <button
           type="button"
           class="flex flex-row w-full
-                items-start tablet:items-center justify-start 
+                items-start justify-start 
               cursor-zoom-in  bg-inherit text-left font-medium text-gray-500 dark:bg-inherit dark:text-gray-400"
           data-accordion-target="#accordion-collapse-body-{{ .timelineIdx }}"
           aria-expanded="false"
@@ -17,7 +17,7 @@
         >
           {{/*  Logo  */}}
           <img
-            class="mb-3 mr-3 h-10 w-10 desktop:h-12 desktop:w-12 rounded-full sm:mb-0 backdrop-saturate-100"
+            class="mb-1 mr-3 p-2 h-10 w-10 desktop:h-12 desktop:w-12 rounded-full sm:mb-0 backdrop-saturate-100 bg-white dark:bg-gray-200"
             src="{{ $thumbnail }}"
             alt="{{ .catIdx }} Logo"
           />
@@ -33,19 +33,19 @@
               <span class="text-sm font-normal text-gray-500 dark:text-gray-400 pr-2">{{ trim .context.Params.Organization " "}} · {{ trim .context.Params.Location " "}}</span>
               <div>
               </div>
+          {{/*  Date Range  */}}
+              <div class=" text-sm font-normal text-gray-500 dark:text-gray-400 pr-2">
+                {{/*  <i class="fa-regular fa-calendar"></i>  */}}
+                <time>{{ time.Format "Jan 2006" .context.Params.From}}</time> &mdash;
+                <time>{{ if .context.Params.To }}{{ time.Format "Jan 2006" .context.Params.To}}{{ else }}present{{ end }}</time>
+              </div>
             </div>
-            
-            {{/*  Date Range  */}}
-            <div class="px-2 text-sm font-normal text-gray-500 dark:text-gray-400 pr-2">
-              {{/*  <i class="fa-regular fa-calendar"></i>  */}}
-              <time>{{ time.Format "Jan 2006" .context.Params.From}}</time> &mdash;
-              <time>{{ time.Format "Jan 2006" .context.Params.to}}</time> 
-            </div>
+           
           
           </div>
           
           {{/*  Dropdown icon  */}}
-          <div class="flex mx-auto w-10 justify-center hover:bg-gray-100 dark:hover:bg-gray-700">
+          <div class="flex mx-auto w-10 items-start hover:bg-gray-100 dark:hover:bg-gray-700">
             <svg
               data-accordion-icon
               class="h-6 w-6 shrink-0"

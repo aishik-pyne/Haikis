@@ -3,15 +3,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" />
-    
-    <link rel="stylesheet" type="text/css" href="{{ "css/style.css" | absURL }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ "/css/style.css" | absURL }}">
     <script src="{{ "js/darkmode.js" | absURL }}"></script>
-    
-    <title>Aishik Pyne</title>
-    <meta name="author" content="Aishik Pyne">
+
+    <title>{{.Site.Params.Title}}</title>
+    <meta name="author" content="{{.Site.Params.Title}}">
 
 
-    {{/*  SEO  */}}
+    {{/* SEO */}}
     {{- if .IsHome -}}
     <meta name="description" content="{{ site.Params.Description }}" />
     {{- else -}}
@@ -20,21 +20,22 @@
 
 
 
-    
-    {{/*  Google Analytics support  */}}
-    {{ with .Site.Params.analytics.googleAnalytics4Id }}
+
+    {{/* Google Analytics support */}}
+    {{- if .Site.Params.analytics.googleAnalytics4Id }}
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{.Site.Params.analytics.googleAnalytics4Id}}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', '{{.Site.Params.analytics.googleAnalytics4Id}}');
     </script>
-    {{ end }}
+    {{- end }}
 
 
-    {{/*  MathJax Support  */}}
+    {{/* MathJax Support */}}
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
           TeX: {
@@ -55,7 +56,7 @@
             alert("Math Processing Error: " + message[1]);
       });
       </script>
-      <script type="text/javascript" async
+    <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-      </script>
+        </script>
 </head>
