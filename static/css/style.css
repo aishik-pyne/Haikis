@@ -2560,6 +2560,10 @@ input:checked + .toggle-bg {
   gap: 0px;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .gap-16 {
   gap: 4rem;
 }
@@ -2582,6 +2586,10 @@ input:checked + .toggle-bg {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-14 {
+  gap: 3.5rem;
 }
 
 .gap-x-2 {
@@ -2995,10 +3003,6 @@ input:checked + .toggle-bg {
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-extrabold {
-  font-weight: 800;
 }
 
 .font-light {
@@ -3526,6 +3530,11 @@ input:checked + .toggle-bg {
   background-color: rgb(35 56 118 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:bg-gray-200) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
 :is(.dark .dark\:bg-gray-600) {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
@@ -3914,10 +3923,6 @@ input:checked + .toggle-bg {
     flex-wrap: wrap;
   }
 
-  .tablet\:items-center {
-    align-items: center;
-  }
-
   .tablet\:justify-center {
     justify-content: center;
   }
@@ -3951,11 +3956,6 @@ input:checked + .toggle-bg {
   .tablet\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
-  }
-
-  .tablet\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .tablet\:text-5xl {

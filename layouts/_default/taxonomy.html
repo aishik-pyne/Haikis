@@ -9,8 +9,9 @@
       <div class="relative px-4 tablet:px-4 desktop:px-6">
 
         <header class="max-w-2xl mx-auto mb-16 tablet:mb-20">
-          <h1 class="text-3xl font-bold -tracking-tight tablet:leading-snug text-zinc-800 dark:text-zinc-100 tablet:text-5xl">{{ .Params.Heading }}</h1>
-          <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">{{ .Params.Subheading }}</p>
+          <h1 class="text-2xl font-bold -tracking-tight tablet:leading-snug text-zinc-800 dark:text-zinc-100 tablet:text-4xl">All that I have written about 
+            <span class="text-pink-500 text-3xl tablet:text-5xl">{{ strings.FirstUpper .Title }}</span></h1>
+          {{/*  <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">{{ .Params.Subheading }}</p>  */}}
         </header>
 
         {{/*  All Articles  */}}
